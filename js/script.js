@@ -175,7 +175,7 @@ async function getSongs(folder) {
 
 
 async function displayAlbums() {
-    let a = await fetch(`http://127.0.0.1:5501/songs/`);      // fetching song folder
+    let a = await fetch(`/songs/`);      // fetching song folder
     let response = await a.text();
     
     let div = document.createElement("div");
@@ -192,7 +192,7 @@ async function displayAlbums() {
             let folder = (e.href.split("/").slice(-1)[0]);    // folder name 
             console.log(folder);
             // Get metadata of the folder
-            let a = await fetch(`http://127.0.0.1:5501/songs/${folder}/info.json`);
+            let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json();
             console.log(response);
             cardContainer.innerHTML = cardContainer.innerHTML + `<div class="card" data-folder="${folder}">
